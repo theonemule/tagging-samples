@@ -1,0 +1,20 @@
+{
+    "mode": "Indexed",
+    "policyRule": {
+        "if": {
+            "anyOf": [
+                {
+                    "field": "tags[unit]",
+                    "notIn": ["it","acct","hr","man"]
+                },
+                {
+                    "field": "tags[environment]",
+                    "notIn": ["dev","test","uat","prod"]
+                }
+            ]
+        },
+        "then": {
+			"effect": "deny"
+        }
+    }
+}

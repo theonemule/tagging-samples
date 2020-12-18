@@ -1,0 +1,38 @@
+{
+    "mode": "Indexed",
+    "policyRule": {
+        "if": {
+            "allOf": [
+                {
+                    "field": "tags[environment]",
+                    "exists": "false"
+                },
+                {
+                    "field": "tags[unit]",
+                    "exists": "false"
+                },
+                {
+                    "field": "tags[shutdown]",
+                    "exists": "false"
+                }
+            ]
+        },
+        "then": {
+            "effect": "append",
+            "details": [
+                {
+                    "field": "tags[environment]",
+                    "value": "dev"
+                },
+                {
+                    "field": "tags[unit]",
+                    "value": "it"
+                },
+                {
+                    "field": "tags[shutdown]",
+                    "value": "never"
+                }
+            ]
+        }
+    }
+}
